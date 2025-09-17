@@ -1,0 +1,56 @@
+﻿<Window x:Class="RockScienceWpfTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Water Pressure Application" 
+        Height="300" Width="450"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="250" MinWidth="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 0: Buttons -->
+        <UniformGrid Grid.Row="0" Rows="1" Columns="2" Margin="0,10">
+            <Button Content="Ground Water Method" 
+                    Command="{Binding OpenGroundWaterDialogCommand}"
+                    TabIndex="1"/>
+            <Button Content="Thermal Method" 
+                    Command="{Binding OpenThermalDialogCommand}"
+                    TabIndex="2"/>
+        </UniformGrid>
+
+        <!-- Row 2: Labels -->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" 
+                   Content="Ground Water Method:" 
+                   FontWeight="Bold" 
+                   TabIndex="3"/>
+            <Label Grid.Row="0" Grid.Column="1" 
+                   Content="{Binding GroundWaterMethod}" 
+                   Style="{StaticResource ResultLabel}"
+                   TabIndex="4"/>
+
+            <Label Grid.Row="1" Grid.Column="0" 
+                   Content="Thermal Method:" 
+                   FontWeight="Bold" 
+                   TabIndex="5"/>
+            <Label Grid.Row="1" Grid.Column="1" 
+                   Content="{Binding ThermalMethod}" 
+                   Style="{StaticResource ResultLabel}"
+                   TabIndex="6"/>
+        </Grid>
+    </Grid>
+</Window>

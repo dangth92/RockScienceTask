@@ -1,0 +1,54 @@
+﻿<Window x:Class="RockScienceWpfTask.Views.SelectionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:behaviors="clr-namespace:RockScienceWpfTask.Behaviors"
+        Title="{Binding Title}" 
+        Height="220" Width="380"
+        WindowStartupLocation="CenterOwner" 
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    <i:Interaction.Behaviors>
+        <behaviors:DialogCloser/>
+    </i:Interaction.Behaviors>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" 
+               Content="{Binding LabelText}" 
+               FontSize="14" 
+               FontWeight="Bold"/>
+
+        <ComboBox Grid.Row="2"
+                  ItemsSource="{Binding Options}"
+                  SelectedItem="{Binding SelectedOption, UpdateSourceTrigger=PropertyChanged}"
+                  Height="35" 
+                  FontSize="12"
+                  TabIndex="1"/>
+
+        <!--<StackPanel Grid.Row="4" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,20,0,0">
+            <Button Content="OK" 
+                    Command="{Binding OKCommand}"
+                    Width="80" Height="32" 
+                    Margin="5,0"
+                    TabIndex="2" 
+                    IsDefault="True"/>
+            <Button Content="Cancel" 
+                    Command="{Binding CancelCommand}"
+                    Width="80" Height="32" 
+                    Margin="5,0"
+                    TabIndex="3" 
+                    IsCancel="True"/>
+        </StackPanel>-->
+    </Grid>
+</Window>
