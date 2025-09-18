@@ -46,7 +46,7 @@ public class WaterPressureProcessor
 
                 foreach (var point in uniquePoints)
                 {
-                    writer.WriteLine($"{point.X:F6}\t{point.Y:F6}\t{point.WaterPressure:F3}");
+                    writer.WriteLine($"{point.X}\t{point.Y}\t{point.WaterPressure}");
                 }
             }
 
